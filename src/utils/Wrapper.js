@@ -7,10 +7,7 @@ const Wrapper = (props) => {
         <Fragment>
             {/* classes.container */}
             <Container className={`${classes.container} ${props.className}`}>
-                {/* classes.row */}
-                <Row className={classes.row}>
-                    {props.children}
-                </Row>
+                {props.children}
             </Container>
         </Fragment>
     )

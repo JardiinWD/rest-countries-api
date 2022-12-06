@@ -8,8 +8,9 @@ import React from 'react'
 const Helmet = (props) => {
     // Pages Name
     document.title = 'Countries API - ' + props.title
+
     return (
-        <div style={{ width: '100%' }}>
+        <div className={props.className}>
             {props.children}
         </div>
     )

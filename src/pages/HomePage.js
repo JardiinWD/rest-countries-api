@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 // API URL (For All country) : "https://restcountries.com/v3.1/all"
 // API_URL (For a specific country) : "https://restcountries.com/v3.1/name/${name}"
-import { Col } from 'reactstrap'
+import { Col, Row } from 'reactstrap'
 // Helmet Utils
 import Helmet from '../utils/Helmet'
 // Wrapper Utils
 import Wrapper from '../utils/Wrapper'
 // Page Stylesheet
-import classes from './styles/Homepage.module.css'
+import classes from './styles/Homepage.module.scss'
 
 const HomePage = () => {
     const [countries, setCountries] = useState([])
@@ -31,9 +31,14 @@ const HomePage = () => {
 
     return (
         /* Helmet component */
-        <Helmet title='Homepage'>
-            <Wrapper className={classes.height}>
-                <Col>Homepage</Col>
+        <Helmet className={classes.helmet} title='Homepage'>
+            {/* classes.height */}
+            <Wrapper className={classes.homepage}>
+                {/* Row */}
+                <Row className={classes.row}>
+                    {/* classes.col */}
+                    <Col lg='12' xs='12'>Homepage</Col>
+                </Row>
             </Wrapper>
         </Helmet>
     )

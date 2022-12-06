@@ -11,9 +11,7 @@ const Layout = () => {
             {/* Header Component */}
             <Header />
             {/* Routers */}
-            <div>
-                <Routers />
-            </div>
+            <Routers />
         </Fragment>
     )
 }
