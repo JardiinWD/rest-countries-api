@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-// Import methods from Apis
 import axios from 'axios'
 // API URL (For All country) : "https://restcountries.com/v3.1/all"
 // API_URL (For a specific country) : "https://restcountries.com/v3.1/name/${name}"
