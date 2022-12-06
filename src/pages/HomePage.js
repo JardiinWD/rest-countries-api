@@ -2,7 +2,13 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 // API URL (For All country) : "https://restcountries.com/v3.1/all"
 // API_URL (For a specific country) : "https://restcountries.com/v3.1/name/${name}"
-
+import { Col } from 'reactstrap'
+// Helmet Utils
+import Helmet from '../utils/Helmet'
+// Wrapper Utils
+import Wrapper from '../utils/Wrapper'
+// Page Stylesheet
+import classes from './styles/Homepage.module.css'
 
 const HomePage = () => {
     const [countries, setCountries] = useState([])
@@ -16,7 +22,7 @@ const HomePage = () => {
         // Then I will save the result and update my current countries state
         setCountries(slicedResponse)
     }
-
+    // useEffect hooks created for async functions invoke
     useEffect(() => {
         // I invoked my async function (For 8 countries) right here
         fetchAllCountries()
@@ -24,7 +30,12 @@ const HomePage = () => {
     }, [])
 
     return (
-        <div>HomePage</div>
+        /* Helmet component */
+        <Helmet title='Homepage'>
+            <Wrapper className={classes.height}>
+                <Col>Homepage</Col>
+            </Wrapper>
+        </Helmet>
     )
 }
 
