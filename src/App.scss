@@ -1,0 +1,16 @@
+// Normalize file
+@import "normalize.css/normalize";
+// Colors 
+@import "./styles/utils.scss";
+// Import Font Family
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+
+// Generic
+*,
+*::before,
+*::after{
+    list-style: none;
+    text-decoration: none;
+    font-family: "Nunito Sans", sans-serif;
+    box-sizing: border-box;
+}

@@ -1,6 +1,6 @@
 
 // Stylesheets
-import './App.css';
+import './App.scss';
 import 'normalize.css';
 // Layout file
 import Layout from './Layout/Layout';
