@@ -5,8 +5,6 @@ import 'normalize.css';
 // Layout file
 import Layout from './Layout/Layout';
 
-
-
 function App() {
   return <Layout />;
 }
