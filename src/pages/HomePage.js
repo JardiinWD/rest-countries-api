@@ -15,9 +15,12 @@ import Countries from '../components/Countries'
 import Inputs from '../components/Inputs'
 
 const HomePage = () => {
+    // Countries useState
     const [countries, setCountries] = useState([])
+    // Countries useState
+    const [region, setRegion] = useState([])
 
-    // API Method for 8 countries (Homepage) as requested on the screenshot
+    // API Method for 8 countries (Homepage) as requested by screenshot
     const fetchAllCountries = async () => {
         // Save on a variable my axios response
         const response = await axios.get("https://restcountries.com/v3.1/all").then(response => response.data).catch(error => console.error(error))
@@ -26,10 +29,35 @@ const HomePage = () => {
         // Then I will save the result and update my current countries state
         setCountries(slicedResponse)
     }
+
+    // API Method for Filtered regions as requested
+    const fetchRegions = async () => {
+        // Save on a variable my axios response
+        const response = await axios.get("https://restcountries.com/v3.1/all").then(response => response.data).catch(error => console.error(error))
+        // I create an empty array for my elements
+        const regions = []
+        // I have filtered my response 
+        response.forEach(element => {
+            // Take all the regions from my response
+            const allRegions = element.region
+            // I've push my full list of regions inside my empty array 
+            regions.push(allRegions)
+        });
+        // I've created a new variable where I reduce the previous array with unique Values
+        // I've used this method instead of set
+        const uniqueRegions = regions.filter((el, index) => {
+            return regions.indexOf(el) === index
+        }).slice(0, 5)
+        // I set my current state with my unique values
+        setRegion(uniqueRegions)
+    }
+
     // useEffect hooks created for async functions invoke
     useEffect(() => {
         // I invoked my async function (For 8 countries) right here
         fetchAllCountries()
+        // I invoked my async function for regions
+        fetchRegions()
         // I don't need any dependencies
     }, [])
 
@@ -42,7 +70,7 @@ const HomePage = () => {
                 <Row className={classes.row}>
                     {/* lg='12' xs='12' */}
                     <Col lg='12' xs='12'>
-                        <Inputs />
+                        <Inputs region={region} />
                     </Col>
                     {/* lg='12' xs='12' */}
                     <Col lg='12' xs='12'>
