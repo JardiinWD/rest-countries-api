@@ -18,7 +18,7 @@ const routers = () => {
             {/* ErrorPage */}
             <Route path='*' element={<ErrorPage />} />
             {/* CountryDetail */}
-            <Route path='/country/:id' element={<CountryDetail />} />
+            <Route path='/home/:id' element={<CountryDetail />} />
         </Routes>
     )
 }

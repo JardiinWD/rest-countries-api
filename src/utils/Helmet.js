@@ -1,4 +1,6 @@
 import React from 'react'
+import { Container } from 'reactstrap'
+
 
 /** This component Allows me to wrap my components and it gives a name to every document
  * 
@@ -10,9 +12,9 @@ const Helmet = (props) => {
     document.title = 'Countries API - ' + props.title
 
     return (
-        <div className={props.className}>
+        <Container fluid className={props.className}>
             {props.children}
-        </div>
+        </Container>
     )
 }
 

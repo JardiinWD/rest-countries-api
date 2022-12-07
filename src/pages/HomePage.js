@@ -36,7 +36,7 @@ const HomePage = () => {
             <Wrapper className={classes.homepage}>
                 {/* Row */}
                 <Row className={classes.row}>
-                    {/* classes.col */}
+                    {/* lg='12' xs='12' */}
                     <Col lg='12' xs='12'>Homepage</Col>
                 </Row>
             </Wrapper>

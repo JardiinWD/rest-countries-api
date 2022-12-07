@@ -2,14 +2,11 @@ import React, { Fragment } from 'react'
 import { Col, Row } from 'reactstrap'
 import classes from './styles/Header.module.scss'
 import Wrapper from '../utils/Wrapper'
-// Helmet component
-import Helmet from '../utils/Helmet'
-
 
 const Header = () => {
     return (
         /* Helmet */
-        <Helmet className={classes.helmet} title='Homepage'>
+        <Fragment>
             {/* Wrapper */}
             <Wrapper className={classes.header}>
                 {/* Row */}
@@ -20,7 +17,7 @@ const Header = () => {
                     </Col>
                 </Row>
             </Wrapper>
-        </Helmet>
+        </Fragment>
     )
 }
 

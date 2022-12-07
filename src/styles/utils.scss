@@ -14,3 +14,8 @@ $fs-14: 14px;
 $fs-16: 16px;
 
 /* Mixins */
+@mixin rowDetails($width, $margin, $padding) {
+    max-width: $width;
+    margin: $margin;
+    padding: $padding;
+}
