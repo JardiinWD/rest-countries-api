@@ -16,7 +16,7 @@ import Inputs from '../components/Inputs'
 
 const HomePage = () => {
     // Countries useState
-    const [countries, setCountries] = useState([])
+    const [initialCountries, setInitialCountries] = useState([])
     // Countries useState
     const [region, setRegion] = useState([])
 
@@ -27,7 +27,7 @@ const HomePage = () => {
         // Then I wanted to save just 8 results as seen by the screenshot
         const slicedResponse = response.slice(0, 8)
         // Then I will save the result and update my current countries state
-        setCountries(slicedResponse)
+        setInitialCountries(slicedResponse)
     }
 
     // API Method for Filtered regions as requested
@@ -74,7 +74,7 @@ const HomePage = () => {
                     </Col>
                     {/* lg='12' xs='12' */}
                     <Col lg='12' xs='12'>
-                        <Countries />
+                        <Countries initialData={initialCountries} />
                     </Col>
                 </Row>
             </Wrapper>

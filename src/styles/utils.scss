@@ -25,3 +25,10 @@ $fs-16: 16px;
     align-items: $align-items;
     justify-content: $justify-content;
 }
+
+/* CountryCard.module.scss */
+@mixin cardItemUtils($color, $font, $weight) {
+    color: $color;
+    font-size: $font;
+    font-weight: $weight;
+}
