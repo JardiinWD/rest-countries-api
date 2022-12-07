@@ -13,4 +13,30 @@
     height: 100%;
 }
 
+.link,
+.link:hover {
+    text-decoration: none;
+    color: $white-color;
+    font-size: 20px;
+    font-weight: $fw-800;
+}
+
+.toggle {
+    font-weight: $fw-600;
+    font-size: $fs-16;
+    color: $white-color;
+    /* Spacing */
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    cursor: pointer;
+}
+
+.moon {
+    color: $white-color;
+    padding-right: 10px;
+}
+
 /* Light Mode */

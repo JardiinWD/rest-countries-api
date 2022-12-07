@@ -1,0 +1,52 @@
+/* Utils stylesheet */
+@import '../../styles/utils.scss';
+
+.row {
+    @include rowDetails(1440px !important, 50px auto !important, 0px !important);
+    height: 55px;
+    /* Internal Items */
+    @include flexUtils(flex, center, space-between);
+}
+
+/* Col utils */
+.col {
+    border: 1px solid black;
+    padding: 0% !important;
+}
+
+/* Column for Input Search */
+.search_col {
+    background-color: $dark-gray;
+    height: 55px;
+    border-radius: 3px;
+    @include flexUtils(flex, center, space-between);
+}
+
+/* Input Search Button */
+.search_button {
+    width: 75px;
+    background-color: $dark-gray;
+    color: $white-color;
+    height: 100%;
+    outline: none;
+    border: none;
+    @include flexUtils(flex, center, center);
+}
+
+/* Input field */
+.search_input {
+    width: calc(100% - 75px);
+    height: 100%;
+    /* Input text */
+    input {
+        background-color: $dark-gray;
+        width: 100%;
+        height: 100%;
+        outline: none;
+        border: none;
+        color: $white-color;
+    }
+    input::placeholder {
+        color: $white-color;
+    }
+}

@@ -18,4 +18,10 @@ $fs-16: 16px;
     max-width: $width;
     margin: $margin;
     padding: $padding;
+};
+
+@mixin flexUtils($display, $align-items, $justify-content) {
+    display: $display;
+    align-items: $align-items;
+    justify-content: $justify-content;
 }
