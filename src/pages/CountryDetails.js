@@ -9,7 +9,7 @@ import Wrapper from '../utils/Wrapper'
 import classes from './styles/CountryDetail.module.scss'
 
 
-const CountryDetail = () => {
+const CountryDetails = () => {
 
     /* Take the Country names from URLs */
     const { id } = useParams()
@@ -25,7 +25,7 @@ const CountryDetail = () => {
                 <Row className={classes.row}>
                     {/* lg='12' xs='12' */}
                     <Col lg='12' xs='12'>
-                        Country Detail
+                        Country Details
                     </Col>
                 </Row>
             </Wrapper>
@@ -33,4 +33,4 @@ const CountryDetail = () => {
     )
 }
 
-export default CountryDetail
+export default CountryDetails

@@ -14,10 +14,8 @@
 }
 
 .row {
-    max-width: 1440px !important;
+    @include rowDetails(1440px !important, 0 auto !important, 0px 65px 0px 65px !important);
     height: 100%;
-    margin: 0 auto !important;
-    padding: 0px 65px 0px 65px !important;
 }
 
 /* Media Queries for 375px */

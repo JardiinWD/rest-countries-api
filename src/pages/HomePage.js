@@ -10,6 +10,10 @@ import Wrapper from '../utils/Wrapper'
 // Page Stylesheet
 import classes from './styles/Homepage.module.scss'
 
+// Components
+import Countries from '../components/Countries'
+import Inputs from '../components/Inputs'
+
 const HomePage = () => {
     const [countries, setCountries] = useState([])
 
@@ -37,7 +41,13 @@ const HomePage = () => {
                 {/* Row */}
                 <Row className={classes.row}>
                     {/* lg='12' xs='12' */}
-                    <Col lg='12' xs='12'>Homepage</Col>
+                    <Col lg='12' xs='12'>
+                        <Inputs />
+                    </Col>
+                    {/* lg='12' xs='12' */}
+                    <Col lg='12' xs='12'>
+                        <Countries />
+                    </Col>
                 </Row>
             </Wrapper>
         </Helmet>
