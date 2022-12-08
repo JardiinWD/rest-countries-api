@@ -31,6 +31,7 @@ const HomePage = () => {
         setInitialCountries(slicedResponse)
     }
 
+    // FIXME: Implement the useContext Tool
     // API Method for Filtered regions as requested
     const fetchRegions = async () => {
         // Save on a variable my axios response

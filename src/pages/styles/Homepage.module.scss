@@ -8,7 +8,8 @@
 }
 
 .homepage {
-    height: calc(100vh - 80px);
+    height: fit-content !important;
+    padding-bottom: 30px !important;
     background-color: $very-dark-blue;
     color: $white-color;
 }

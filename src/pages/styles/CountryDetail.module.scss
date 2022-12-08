@@ -15,7 +15,61 @@
 
 .row {
     @include rowDetails(1440px !important, 0 auto !important, 0px 65px 0px 65px !important);
+    height: fit-content;
+}
+
+/* Back Btn */
+.col_back {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0% !important;
+    height: 40px;
+    margin-top: 80px !important;
+    margin-bottom: 80px;
+}
+
+/* Back to homepage */
+.redirect {
+    /* Dimensions */
+    width: 135px;
     height: 100%;
+    /* Style */
+    background-color: $dark-blue;
+    color: $white-color;
+    font-size: $fs-16;
+    font-weight: $fw-600;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0.5px 0.5px 1px 0.5px rgb(15 15 15);
+    text-decoration: none;
+    /* Align */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Icon */
+    span:first-of-type {
+        padding-right: 10px;
+    }
+} 
+
+.redirect:hover {
+    text-decoration: none;
+    color: $white-color;
+}
+
+
+/* Flag */
+.flag {
+    width: fit-content;
+    height: fit-content;
+    padding: 0% !important;
+    /* Img */
+    img {
+        width: 560px;
+        height: 400px;
+    }
 }
 
 /* Media Queries for 375px */
