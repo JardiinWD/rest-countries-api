@@ -22,7 +22,7 @@
 .col_back {
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     padding: 0% !important;
     height: 40px;
     margin-top: 80px !important;
@@ -67,10 +67,70 @@
     padding: 0% !important;
     /* Img */
     img {
-        width: 560px;
-        height: 400px;
+        width: 500px;
+        height: 350px;
     }
 }
+
+/* country_data */
+.country_data {
+    border: 1px solid black;
+    height: fit-content;
+    padding: 0% !important;
+}
+/* country_title */
+.country_title {
+    height: fit-content;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    /* H4 */
+    h4 {
+        margin-bottom: 0;
+        color: $white-color;
+        font-size: 30px;
+        font-weight: $fw-800;
+    }
+}
+
+
+/* country_data_wrapper */
+.country_data_wrapper {
+    @include flexUtils(flex, flex-start, flex-start)
+}
+
+.data_wrapper_left {
+    margin-right: 150px;
+}
+
+.data_wrapper_left,
+.data_wrapper_right {
+    width: fit-content;
+    height: fit-content;
+    /* Unordered List */
+    ul {
+        padding-left: 0% !important;
+        margin-bottom: 0% !important;
+        list-style: none;
+        line-height: 32px;
+        /* Single List Item */
+        li {
+            span:nth-child(1){
+                @include cardItemUtils($white-color, $fs-16, $fw-600);
+            }
+            span:nth-child(2){
+                @include cardItemUtils($white-color, $fs-16, $fw-300)
+            }  
+        }
+    }
+}
+
+
+
+/* country_borders */
+.country_borders {
+
+}
+
 
 /* Media Queries for 375px */
 @media only screen and (max-width: 375px) {

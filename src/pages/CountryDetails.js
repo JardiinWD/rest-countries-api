@@ -34,6 +34,7 @@ const CountryDetails = () => {
             // I declare some Variables (but I haven't initialized)
             let native; // For the Native Name
             let currency; // For the National currency
+            let language = []; // For the array of string
 
             // I have looped inside response.name.nativeName
             for (const key in response.name.nativeName) {
@@ -44,6 +45,13 @@ const CountryDetails = () => {
             for (const key in response.currencies) {
                 // Then I saved in currency the response at position key
                 currency = response.currencies[key].name
+            }
+            // I have looped inside response.languages
+            for (const key in response.languages) {
+                // I've created a variable just for pushing.
+                let uniqueArrayOfLanguage = response.languages[key]
+                // Then I've pushed on my language Array
+                language.push(uniqueArrayOfLanguage)
             }
 
             // Then I will save the result and update my current countries state
@@ -58,7 +66,7 @@ const CountryDetails = () => {
                 capital: response.capital[0], // Capital
                 topLevel: response.tld[0], // Top Level
                 currency: currency, // Currencies
-                languages: response.languages, // Languages (Array)
+                languages: language ? language : response.languages, // Languages (Array)
                 borderCountry: response.borders // Borders (Array)
             })
         }
@@ -66,6 +74,31 @@ const CountryDetails = () => {
         fetchSingleCountry()
         // I've used id as a dependency
     }, [id])
+
+    // Data for Left Table (Create as Iterable)
+    const leftTable = [
+        {
+            title: "Native Name: ",
+            data: country.nativeName ?? 'Undefined'
+        },
+        {
+            title: "Population: ",
+            data: FormatNumber(country.population) ?? 'Undefined'
+        },
+        {
+            title: "Region: ",
+            data: country.region ?? 'Undefined'
+        },
+        {
+            title: "Sub Region: ",
+            data: country.subRegion ?? 'Undefined'
+        },
+        {
+            title: "Capital: ",
+            data: country.capital ?? 'Undefined'
+        },
+    ]
+
 
     return (
         /* Helmet component */
@@ -85,17 +118,81 @@ const CountryDetails = () => {
                     </Col>
                 </Row>
                 {/* classes.row */}
-                <Row className={`${classes.row} d-flex align-items-center justify-content-between`}>
+                <Row className={`${classes.row} d-flex align-items-start justify-content-between`}>
                     {/* lg='6' xs='12' */}
                     <Col className={classes.flag} lg='5' xs='12'>
                         {/* country.flag */}
                         <img src={country.flag} alt={country.name} />
                     </Col>
                     {/* lg='6' xs='12' */}
-                    <Col lg='6' xs='12'>
+                    <Col className={classes.country_data} lg='6' xs='12'>
                         {/* Title */}
+                        <div className={classes.country_title}>
+                            {/* country.name */}
+                            <h4>{country.name}</h4>
+                        </div>
                         {/* Data Wrapper */}
+                        <div className={classes.country_data_wrapper}>
+                            {/* data_wrapper_left */}
+                            <div className={classes.data_wrapper_left}>
+                                {/* Left data */}
+                                <ul>
+                                    {
+                                        leftTable.map((el, index) => {
+                                            return (
+                                                <li key={index}>
+                                                    <span>{el.title}</span>
+                                                    <span>{el.data}</span>
+                                                </li>
+                                            )
+                                        })
+                                    }
+                                </ul>
+                            </div>
+                            {/* data_wrapper_right */}
+                            <div className={classes.data_wrapper_right}>
+                                {/* Right data */}
+                                <ul>
+                                    {/* Top Level Domain */}
+                                    <li>
+                                        <span>Top Level Domain: </span>
+                                        <span>{country.topLevel ?? 'Undefined'}</span>
+                                    </li>
+                                    {/* Currencies */}
+                                    <li>
+                                        <span>Currencies: </span>
+                                        <span>{country.currency ?? 'Undefined'}</span>
+                                    </li>
+                                    {/* Languages */}
+                                    <li>
+                                        <span>Languages: </span>
+                                        {
+                                            country.languages && country.languages.map((item, index) => {
+                                                return (
+                                                    /* span Element */
+                                                    <span key={index}>
+                                                        {/* Here I've setted a condition for my Array of languages */}
+                                                        {
+                                                            country.languages.length <= 1 ?
+                                                                (
+                                                                    `${item}`
+                                                                ) :
+                                                                (
+                                                                    `${item !== country.languages[country.languages.length - 1] ? item + ', ' : item}`
+                                                                )
+                                                        }
+                                                    </span>
+                                                )
+                                            })
+                                        }
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                         {/* Borders */}
+                        <div className={classes.country_borders}>
+
+                        </div>
                     </Col>
                 </Row>
             </Wrapper>
