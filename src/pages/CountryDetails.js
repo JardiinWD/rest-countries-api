@@ -7,7 +7,8 @@ import Helmet from '../utils/Helmet'
 import Wrapper from '../utils/Wrapper'
 // Page Stylesheet
 import classes from './styles/CountryDetail.module.scss'
-
+// Format Query
+import { FormatNumber } from '../utils/Format'
 
 const CountryDetails = () => {
 

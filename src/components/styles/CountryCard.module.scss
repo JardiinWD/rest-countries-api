@@ -1,11 +1,15 @@
 /* Utils stylesheet */
 @import '../../styles/utils.scss';
 
+.links_to {
+    text-decoration: none;
+}
+
+
 .card {
     width: 100%;
     border-radius: 8px;
-    box-shadow: 1px 2px 5px 1px rgb(15 15 15);
-
+    box-shadow: 0.5px 0.5px 3px 1px rgb(15 15 15);
 }
 
 .card_img {

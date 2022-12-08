@@ -21,6 +21,7 @@ const HomePage = () => {
     const [region, setRegion] = useState([])
 
     // API Method for 8 countries (Homepage) as requested by screenshot
+    // FIXME: Implement the useContext Tool
     const fetchAllCountries = async () => {
         // Save on a variable my axios response
         const response = await axios.get("https://restcountries.com/v3.1/all").then(response => response.data).catch(error => console.error(error))

@@ -22,7 +22,9 @@ const Countries = (props) => {
                     {
                         initialData.map((el, index) => {
                             return (
+                                /* lg='3' xs='12' */
                                 <Col lg='3' xs='12' key={index}>
+                                    {/* CountryCard component */}
                                     <CountryCard data={el} />
                                 </Col>
                             )

@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 // Classes
 import classes from './styles/CountryCard.module.scss'
-
+// Utils Format number for population
+import { FormatNumber, FormatString } from '../../src/utils/Format'
+// Link utils for Card rendering
+import { Link } from 'react-router-dom'
 
 
 const CountryCard = (props) => {
@@ -16,31 +19,36 @@ const CountryCard = (props) => {
 
 
     return (
-        /* classes.card */
-        <div className={classes.card}>
-            {/* classes.card_img */}
-            <img className={classes.card_img} src={countryFlag} alt={countryName} />
-            {/* classes.card_info */}
-            <ul className={classes.card_info}>
-                {/* classes.title */}
-                <li className={classes.title}>{countryName}</li>
-                {/* classes.card_item */}
-                <li className={classes.card_item}>
-                    <span>Population: </span>
-                    <span>{countryPopulation}</span>
-                </li>
-                {/* classes.card_item */}
-                <li className={classes.card_item}>
-                    <span>Region: </span>
-                    <span>{countryRegion}</span>
-                </li>
-                {/* classes.card_item */}
-                <li className={classes.card_item}>
-                    <span>Capital: </span>
-                    <span>{countryCapital}</span>
-                </li>
-            </ul>
-        </div>
+        <Fragment>
+            {/* Link rendering */}
+            <Link className={classes.links_to} to={`/home/${countryName.trim()}`}>
+                {/* classes.card */}
+                <div className={classes.card}>
+                    {/* classes.card_img */}
+                    <img className={classes.card_img} src={countryFlag} alt={countryName} />
+                    {/* classes.card_info */}
+                    <ul className={classes.card_info}>
+                        {/* classes.title */}
+                        <li className={classes.title}>{countryName}</li>
+                        {/* classes.card_item */}
+                        <li className={classes.card_item}>
+                            <span>Population: </span>
+                            <span>{FormatNumber(countryPopulation)}</span>
+                        </li>
+                        {/* classes.card_item */}
+                        <li className={classes.card_item}>
+                            <span>Region: </span>
+                            <span>{countryRegion}</span>
+                        </li>
+                        {/* classes.card_item */}
+                        <li className={classes.card_item}>
+                            <span>Capital: </span>
+                            <span>{countryCapital}</span>
+                        </li>
+                    </ul>
+                </div>
+            </Link>
+        </Fragment>
     )
 }
 
