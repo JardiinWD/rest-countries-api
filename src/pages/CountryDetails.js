@@ -19,8 +19,9 @@ const CountryDetails = () => {
     const { id } = useParams()
     // Helmet Title with the first letter capitalized
     const helmetTitle = id.charAt(0).toUpperCase() + id.slice(1)
-    // SIngle country' useState
+    // Single country' useState
     const [country, setCountry] = useState([])
+
 
     // useEffect hooks created for async functions 
     useEffect(() => {
@@ -29,12 +30,15 @@ const CountryDetails = () => {
         const fetchSingleCountry = async () => {
             // Save on a variable my axios response
             const response = await axios.get(`https://restcountries.com/v3.1/name/${id}`).then(response => response.data[0]).catch(error => console.error(error))
+            // Then save on a variable all countries. I need this call for my array of borders
+            const allCountries = await axios.get("https://restcountries.com/v3.1/all").then(response => response.data).catch(error => console.error(error))
+
             // I need to fix some issues before I declared my country state
-            console.log(response);
             // I declare some Variables (but I haven't initialized)
             let native; // For the Native Name
             let currency; // For the National currency
             let language = []; // For the array of string
+            let arrayOfBorders = [] // For the array of borders
 
             // I have looped inside response.name.nativeName
             for (const key in response.name.nativeName) {
@@ -53,6 +57,15 @@ const CountryDetails = () => {
                 // Then I've pushed on my language Array
                 language.push(uniqueArrayOfLanguage)
             }
+            // I have looped inside response.borders
+            for (const key in response.borders) {
+                // Then I wanted to find all that countries where cca3 (It's the shorter name) is equal to response.borders[key] 
+                const filteredCountries = allCountries.find(id => id.cca3 === response.borders[key])
+                // If I cannot find them I will return
+                if (!filteredCountries) return
+                // Else I will push inside my array of borders their name
+                arrayOfBorders.push(filteredCountries.name.common)
+            }
 
             // Then I will save the result and update my current countries state
             // This is the Object with my properties
@@ -67,13 +80,16 @@ const CountryDetails = () => {
                 topLevel: response.tld[0], // Top Level
                 currency: currency, // Currencies
                 languages: language ? language : response.languages, // Languages (Array)
-                borderCountry: response.borders // Borders (Array)
+                borderCountries: arrayOfBorders // arrayOfBorders (Array)
             })
         }
+
         // I invoked my async function for the selected country
         fetchSingleCountry()
         // I've used id as a dependency
     }, [id])
+
+    console.log(country);
 
     // Data for Left Table (Create as Iterable)
     const leftTable = [
@@ -135,7 +151,7 @@ const CountryDetails = () => {
                         <div className={classes.country_data_wrapper}>
                             {/* data_wrapper_left */}
                             <div className={classes.data_wrapper_left}>
-                                {/* Left data */}
+                                {/* Left Table */}
                                 <ul>
                                     {
                                         leftTable.map((el, index) => {
@@ -151,7 +167,7 @@ const CountryDetails = () => {
                             </div>
                             {/* data_wrapper_right */}
                             <div className={classes.data_wrapper_right}>
-                                {/* Right data */}
+                                {/* Right table */}
                                 <ul>
                                     {/* Top Level Domain */}
                                     <li>
@@ -171,13 +187,17 @@ const CountryDetails = () => {
                                                 return (
                                                     /* span Element */
                                                     <span key={index}>
-                                                        {/* Here I've setted a condition for my Array of languages */}
                                                         {
+                                                            /* Here I've setted a condition for my Array of languages */
+                                                            /* if country.languages.length in less (or equal) than 1, then */
                                                             country.languages.length <= 1 ?
                                                                 (
+                                                                    /* I only call item, without any comma */
                                                                     `${item}`
-                                                                ) :
-                                                                (
+                                                                ) : (
+                                                                    /* Else I have to check if item is the same as the one at the last position */
+                                                                    /* If it's true then I add a comma */
+                                                                    /* Else I call my item on last position (without comma) */
                                                                     `${item !== country.languages[country.languages.length - 1] ? item + ', ' : item}`
                                                                 )
                                                         }

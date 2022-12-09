@@ -65,10 +65,12 @@
     width: fit-content;
     height: fit-content;
     padding: 0% !important;
+    object-fit: cover;
     /* Img */
     img {
-        width: 500px;
+        width: 525px;
         height: 350px;
+        
     }
 }
 
