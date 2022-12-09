@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useRef, useEffect } from 'react'
 // Reactstrap components
 import { Col, Row } from 'reactstrap'
 import Wrapper from '../utils/Wrapper'
@@ -13,16 +13,16 @@ const Inputs = (props) => {
     const [isOpen, setIsOpen] = useState(false)
     // Selected option management
     const [selectedOption, setSelectedOption] = useState(null);
-
-    // I've Took my region state from Homepage
-    const { region } = props
+    // Input field where user can write his country 
+    const [searchedCountry, setSearchedCountry] = useState('')
+    // I've Took my region state from Homepage and my Handlers
+    const { region, onAddHandler } = props
 
     // Toggling handler function
     const togglingHandler = () => {
         // Use the not operator as a toggle
         setIsOpen(!isOpen)
     }
-
     // Selected Option
     const optionClicked = value => () => {
         // Take the selected option value and update
@@ -30,6 +30,7 @@ const Inputs = (props) => {
         // Autoclose the dropdown menu
         setIsOpen(false)
     }
+
 
     return (
         /* Fragment */
@@ -43,12 +44,17 @@ const Inputs = (props) => {
                         {/* search_button */}
                         <button className={classes.search_button}>
                             {/* search_icon */}
-                            <BsSearch className={classes.search_icon} />
+                            <BsSearch onClick={onAddHandler(searchedCountry)} className={classes.search_icon} />
                         </button>
                         {/* Input */}
                         <div className={classes.search_input}>
                             {/* Input field */}
-                            <input type="text" placeholder='Search for a country...' />
+                            <input
+                                value={searchedCountry}
+                                onChange={(e) => { setSearchedCountry(e.target.value) }}
+                                type="text"
+                                placeholder='Search for a country...'
+                            />
                         </div>
                     </Col>
                     {/* Dropdown Menu */}

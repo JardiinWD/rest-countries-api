@@ -10,6 +10,7 @@ import Wrapper from '../utils/Wrapper'
 import classes from './styles/CountryDetail.module.scss'
 // Format Number (for population)
 import { FormatNumber } from '../utils/Format'
+// Return to homepage
 import { BsArrowLeft } from 'react-icons/bs'
 
 
@@ -25,7 +26,7 @@ const CountryDetails = () => {
 
     // useEffect hooks created for async functions 
     useEffect(() => {
-        // API Method for the selected country
+        // API Method for the selected country/*  */
         // FIXME: Implement the useContext Tool
         const fetchSingleCountry = async () => {
             // Save on a variable my axios response
@@ -219,7 +220,11 @@ const CountryDetails = () => {
                                     country.borderCountries && country.borderCountries.length > 1 ? (
                                         /* If it's true I will map my array and return my items */
                                         country.borderCountries.map((item, index) => {
-                                            return <span key={index}>{item}</span>
+                                            return (
+                                                <Link key={index} to={`/home/${item}`} >
+                                                    <span>{item}</span>
+                                                </Link>
+                                            )
                                         })
                                     ) : (
                                         /* Else I create another span without value  */
@@ -231,7 +236,7 @@ const CountryDetails = () => {
                     </Col>
                 </Row>
             </Wrapper>
-        </Helmet>
+        </Helmet >
     )
 }
 

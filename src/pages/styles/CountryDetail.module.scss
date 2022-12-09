@@ -76,10 +76,11 @@
 
 /* country_data */
 .country_data {
-    border: 1px solid black;
     height: fit-content;
     padding: 0% !important;
 }
+
+
 /* country_title */
 .country_title {
     height: fit-content;
@@ -97,12 +98,9 @@
 
 /* country_data_wrapper */
 .country_data_wrapper {
-    @include flexUtils(flex, flex-start, flex-start);
+    @include flexUtils(flex, flex-start, space-between);
 }
 
-.data_wrapper_left {
-    margin-right: 150px;
-}
 
 .data_wrapper_left,
 .data_wrapper_right {
@@ -144,6 +142,7 @@
     /* Button Country */
     span {
         @include cardItemUtils($white-color, $fs-16, $fw-300);
+        cursor: pointer;
         font-weight: $fw-300;
         margin-left: 10px;
         margin-bottom: 5px;
@@ -154,7 +153,14 @@
         border-radius: 5px;
         box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(15 15 15);
     }
+    a {
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: none;
+    }
 }
+
 
 /* Media Queries for 375px */
 @media only screen and (max-width: 375px) {
