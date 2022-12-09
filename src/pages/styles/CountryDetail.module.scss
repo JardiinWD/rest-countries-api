@@ -97,7 +97,7 @@
 
 /* country_data_wrapper */
 .country_data_wrapper {
-    @include flexUtils(flex, flex-start, flex-start)
+    @include flexUtils(flex, flex-start, flex-start);
 }
 
 .data_wrapper_left {
@@ -126,13 +126,35 @@
     }
 }
 
-
-
 /* country_borders */
 .country_borders {
-
+    padding-top: 30px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    /* Title */
+    span{
+        @include cardItemUtils($white-color, $fs-16, $fw-600);
+    }
 }
 
+.borders {
+    display: inline;
+    /* Button Country */
+    span {
+        @include cardItemUtils($white-color, $fs-16, $fw-300);
+        font-weight: $fw-300;
+        margin-left: 10px;
+        margin-bottom: 5px;
+        padding: 5px 20px 5px 20px;
+        background-color: $dark-blue;
+        outline: none;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(15 15 15);
+    }
+}
 
 /* Media Queries for 375px */
 @media only screen and (max-width: 375px) {

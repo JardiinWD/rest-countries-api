@@ -80,18 +80,16 @@ const CountryDetails = () => {
                 topLevel: response.tld[0], // Top Level
                 currency: currency, // Currencies
                 languages: language ? language : response.languages, // Languages (Array)
-                borderCountries: arrayOfBorders // arrayOfBorders (Array)
+                // I set this condition because I want only 3 countries
+                borderCountries: arrayOfBorders.length >= 4 ? arrayOfBorders.slice(0, 3) : arrayOfBorders // arrayOfBorders (Array)
             })
         }
-
         // I invoked my async function for the selected country
         fetchSingleCountry()
         // I've used id as a dependency
     }, [id])
 
-    console.log(country);
-
-    // Data for Left Table (Create as Iterable)
+    // Data for Left Table (Created as Iterable)
     const leftTable = [
         {
             title: "Native Name: ",
@@ -211,7 +209,24 @@ const CountryDetails = () => {
                         </div>
                         {/* Borders */}
                         <div className={classes.country_borders}>
-
+                            {/* Title */}
+                            <span>Border Countries :</span>
+                            {/* classes.borders */}
+                            <div className={classes.borders}>
+                                {
+                                    /* I've set my condition where country.borderCountries has to be true */
+                                    /* And country.borderCountries.length is greater than 1 */
+                                    country.borderCountries && country.borderCountries.length > 1 ? (
+                                        /* If it's true I will map my array and return my items */
+                                        country.borderCountries.map((item, index) => {
+                                            return <span key={index}>{item}</span>
+                                        })
+                                    ) : (
+                                        /* Else I create another span without value  */
+                                        <span>/</span>
+                                    )
+                                }
+                            </div>
                         </div>
                     </Col>
                 </Row>
