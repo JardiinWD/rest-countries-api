@@ -10,7 +10,7 @@ import { RiArrowDropDownLine, RiArrowDropUpLine } from 'react-icons/ri'
 const Inputs = (props) => {
 
     // I've Took my region state from Homepage and my Handlers
-    const { region, onAddHandler } = props
+    const { region, onSearchHandler } = props
 
     // Toggling dropdown menu function (initially setted as false)
     const [isOpen, setIsOpen] = useState(false)
@@ -35,6 +35,7 @@ const Inputs = (props) => {
 
     // Set my search input field on searchedCountry
     const onSearchCountry = useCallback((e) => {
+        e.preventDefault()
         setSearchedCountry(e.target.value)
     }, [])
 
@@ -51,14 +52,13 @@ const Inputs = (props) => {
                         {/* search_button */}
                         <button className={classes.search_button}>
                             {/* search_icon */}
-                            <BsSearch onClick={onAddHandler(searchedCountry)} className={classes.search_icon} />
+                            <BsSearch onClick={onSearchHandler(searchedCountry)} className={classes.search_icon} />
                         </button>
                         {/* Input */}
                         <form onSubmit={onSearchCountry} className={classes.search_input}>
                             {/* Input field */}
                             {/* //FIXME: Il problema dovrebbe essere sull'onChange */}
                             <input
-                                value={searchedCountry}
                                 onChange={onSearchCountry}
                                 type="text"
                                 placeholder='Search for a country...'

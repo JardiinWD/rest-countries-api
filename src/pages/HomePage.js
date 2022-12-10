@@ -16,7 +16,6 @@ import Inputs from '../components/Inputs'
 
 const HomePage = () => {
     // Countries useState
-    const [initialCountries, setInitialCountries] = useState([])
     // All countries useState (for filtering)
     const [allCountries, setAllCountries] = useState([])
     // Countries useState
@@ -31,9 +30,9 @@ const HomePage = () => {
         // I will save all the countries on allCountries 
         setAllCountries(response)
         // Then I wanted to save just 8 results as seen by the screenshot
-        const slicedResponse = response.slice(0, 8)
+        // const slicedResponse = response.slice(0, 8)
         // Then I will save the result and update my current countries state
-        setInitialCountries(slicedResponse)
+        // setInitialCountries(slicedResponse)
     }
 
     // FIXME: Implement the useContext Tool
@@ -60,21 +59,22 @@ const HomePage = () => {
     }
 
     // TODO: Fix this handler function
-    const onAddHandler = useCallback((input) => {
-        if (!input) return
-
-        /* If I find a */
+    const onSearchHandler = useCallback((input) => {
+        /* If I find a result */
         if (input) {
+            console.log(input);
             // Then I filter my results, based on what the user searched for
-            const searchedResult = allCountries.find(item => {
+            const findResult = allCountries.filter(item => {
                 // I will return the single item that was equal to input field
                 return item.name.common === input;
             })
-            console.log(searchedResult);
+            console.log(findResult);
+            // QUI VA IN TILT SE TOGLI COMMENTO //
+            // setAllCountries(findResult)
             // I set my data just for the single country
-            console.log(searchCountry);
+            // console.log(searchCountry);
         }
-    }, [allCountries, searchCountry])
+    }, [allCountries])
 
 
 
@@ -99,11 +99,11 @@ const HomePage = () => {
                     <Col lg='12' xs='12'>
                         {/* onAddHandler => Fn for Search Input */}
                         {/* region => Data for Dropdown menu */}
-                        <Inputs onAddHandler={onAddHandler} region={region} />
+                        <Inputs onSearchHandler={onSearchHandler} region={region} />
                     </Col>
                     {/* lg='12' xs='12' */}
                     <Col lg='12' xs='12'>
-                        <Countries initialData={initialCountries} />
+                        <Countries data={allCountries} />
                     </Col>
                 </Row>
             </Wrapper>
