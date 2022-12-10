@@ -10,7 +10,7 @@ import { RiArrowDropDownLine, RiArrowDropUpLine } from 'react-icons/ri'
 const Inputs = (props) => {
 
     // I've Took my region state from Homepage and my Handlers
-    const { region, onSearchHandler } = props
+    const { region, allCountries, setAllCountries } = props
 
     // Toggling dropdown menu function (initially setted as false)
     const [isOpen, setIsOpen] = useState(false)
@@ -34,10 +34,19 @@ const Inputs = (props) => {
     }
 
     // Set my search input field on searchedCountry
-    const onSearchCountry = useCallback((e) => {
+    const onSearchCountry = (e) => {
         e.preventDefault()
-        setSearchedCountry(e.target.value)
-    }, [])
+             if (e.target.value) {
+            console.log(e.target.value);
+            // Then I filter my results, based on what the user searched for
+            const findResult = allCountries.filter(item => {
+                // I will return the single item that was equal to input field
+                return item.name.common.toLowerCase().includes(e.target.value);
+            })
+            console.log(findResult);
+        setAllCountries(findResult)
+    }
+}
 
 
     return (
@@ -52,7 +61,7 @@ const Inputs = (props) => {
                         {/* search_button */}
                         <button className={classes.search_button}>
                             {/* search_icon */}
-                            <BsSearch onClick={onSearchHandler(searchedCountry)} className={classes.search_icon} />
+                            {/* <BsSearch onClick={onSearchHandler(searchedCountry)} className={classes.search_icon} /> */}
                         </button>
                         {/* Input */}
                         <form onSubmit={onSearchCountry} className={classes.search_input}>
