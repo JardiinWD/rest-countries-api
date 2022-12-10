@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef, useEffect } from 'react'
+import React, { Fragment, useState, useRef, useCallback } from 'react'
 // Reactstrap components
 import { Col, Row } from 'reactstrap'
 import Wrapper from '../utils/Wrapper'
@@ -9,14 +9,16 @@ import { RiArrowDropDownLine, RiArrowDropUpLine } from 'react-icons/ri'
 
 const Inputs = (props) => {
 
+    // I've Took my region state from Homepage and my Handlers
+    const { region, onAddHandler } = props
+
     // Toggling dropdown menu function (initially setted as false)
     const [isOpen, setIsOpen] = useState(false)
     // Selected option management
     const [selectedOption, setSelectedOption] = useState(null);
     // Input field where user can write his country 
     const [searchedCountry, setSearchedCountry] = useState('')
-    // I've Took my region state from Homepage and my Handlers
-    const { region, onAddHandler } = props
+
 
     // Toggling handler function
     const togglingHandler = () => {
@@ -30,6 +32,11 @@ const Inputs = (props) => {
         // Autoclose the dropdown menu
         setIsOpen(false)
     }
+
+    // Set my search input field on searchedCountry
+    const onSearchCountry = useCallback((e) => {
+        setSearchedCountry(e.target.value)
+    }, [])
 
 
     return (
@@ -47,15 +54,16 @@ const Inputs = (props) => {
                             <BsSearch onClick={onAddHandler(searchedCountry)} className={classes.search_icon} />
                         </button>
                         {/* Input */}
-                        <div className={classes.search_input}>
+                        <form onSubmit={onSearchCountry} className={classes.search_input}>
                             {/* Input field */}
+                            {/* //FIXME: Il problema dovrebbe essere sull'onChange */}
                             <input
                                 value={searchedCountry}
-                                onChange={(e) => { setSearchedCountry(e.target.value) }}
+                                onChange={onSearchCountry}
                                 type="text"
                                 placeholder='Search for a country...'
                             />
-                        </div>
+                        </form>
                     </Col>
                     {/* Dropdown Menu */}
                     <Col className={classes.col} lg='2' xs='5'>

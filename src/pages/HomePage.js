@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import axios from 'axios'
 // API URL (For All country) : "https://restcountries.com/v3.1/all"
 // API_URL (For a specific country) : "https://restcountries.com/v3.1/name/${name}"
@@ -21,7 +21,7 @@ const HomePage = () => {
     const [allCountries, setAllCountries] = useState([])
     // Countries useState
     const [region, setRegion] = useState([])
-    // Input Search useState
+    // TODO: Input Search useState
     const [searchCountry, setSearchCountry] = useState('')
     // API Method for 8 countries (Homepage) as requested by screenshot
     // FIXME: Implement the useContext Tool
@@ -59,9 +59,11 @@ const HomePage = () => {
         setRegion(uniqueRegions)
     }
 
-    // This function allows me to lifting the state of <Inputs /> component
-    const onAddHandler = (input) => {
+    // TODO: Fix this handler function
+    const onAddHandler = useCallback((input) => {
         if (!input) return
+
+        /* If I find a */
         if (input) {
             // Then I filter my results, based on what the user searched for
             const searchedResult = allCountries.find(item => {
@@ -70,10 +72,11 @@ const HomePage = () => {
             })
             console.log(searchedResult);
             // I set my data just for the single country
-            setSearchCountry(searchedResult)
             console.log(searchCountry);
         }
-    }
+    }, [allCountries, searchCountry])
+
+
 
     // useEffect hooks created for async functions invoke
     useEffect(() => {
