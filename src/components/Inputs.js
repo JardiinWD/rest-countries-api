@@ -35,18 +35,19 @@ const Inputs = (props) => {
 
     // Set my search input field on searchedCountry
     const onSearchCountry = (e) => {
+        // Preventing Default
         e.preventDefault()
-             if (e.target.value) {
-            console.log(e.target.value);
+        if (e.target.value) {
             // Then I filter my results, based on what the user searched for
             const findResult = allCountries.filter(item => {
                 // I will return the single item that was equal to input field
-                return item.name.common.toLowerCase().includes(e.target.value);
+                return item.name.common.toLowerCase().includes(e.target.value.toLowerCase());
             })
-            console.log(findResult);
-        setAllCountries(findResult)
+            // If I find something then I will update my current state with the result
+            // Else I will setAllCountries with allCountries
+            findResult && findResult.length > 0 ? setAllCountries(findResult) : setAllCountries(allCountries)
+        }
     }
-}
 
 
     return (
@@ -61,12 +62,11 @@ const Inputs = (props) => {
                         {/* search_button */}
                         <button className={classes.search_button}>
                             {/* search_icon */}
-                            {/* <BsSearch onClick={onSearchHandler(searchedCountry)} className={classes.search_icon} /> */}
+                            <BsSearch className={classes.search_icon} />
                         </button>
                         {/* Input */}
                         <form onSubmit={onSearchCountry} className={classes.search_input}>
                             {/* Input field */}
-                            {/* //FIXME: Il problema dovrebbe essere sull'onChange */}
                             <input
                                 onChange={onSearchCountry}
                                 type="text"
@@ -83,11 +83,13 @@ const Inputs = (props) => {
                                 {/* Text */}
                                 <span>Filter by Region</span>
                                 {/* Icon conditions */}
-                                {isOpen ? (
-                                    <RiArrowDropUpLine className={classes.dropdown_arrow} />
-                                ) : (
-                                    <RiArrowDropDownLine className={classes.dropdown_arrow} />
-                                )}
+                                {
+                                    isOpen ? (
+                                        <RiArrowDropUpLine className={classes.dropdown_arrow} />
+                                    ) : (
+                                        <RiArrowDropDownLine className={classes.dropdown_arrow} />
+                                    )
+                                }
                             </div>
                             {/* dropdown_list */}
                             {

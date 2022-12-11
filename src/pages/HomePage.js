@@ -58,25 +58,6 @@ const HomePage = () => {
         setRegion(uniqueRegions)
     }
 
-    // TODO: Fix this handler function
-    // const onSearchHandler = useCallback((input) => {
-    //     /* If I find a result */
-    //     if (input) {
-    //         console.log(input);
-    //         // Then I filter my results, based on what the user searched for
-    //         const findResult = allCountries.filter(item => {
-    //             // I will return the single item that was equal to input field
-    //             return item.name.common === input;
-    //         })
-    //         console.log(findResult);
-    //         // QUI VA IN TILT SE TOGLI COMMENTO //
-    //         // setAllCountries(findResult)
-    //         // I set my data just for the single country
-    //         // console.log(searchCountry);
-    //     }
-    // }, [allCountries])
-
-
     // useEffect hooks created for async functions invoke
     useEffect(() => {
         // I invoked my async function (For 8 countries) right here
