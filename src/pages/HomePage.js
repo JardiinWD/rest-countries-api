@@ -18,6 +18,8 @@ const HomePage = () => {
     // Countries useState
     // All countries useState (for filtering)
     const [allCountries, setAllCountries] = useState([])
+
+    const [searchedCountry, setSearchedCountry] = useState([])
     // Countries useState
     const [region, setRegion] = useState([])
     // TODO: Input Search useState
@@ -79,11 +81,19 @@ const HomePage = () => {
                     <Col lg='12' xs='12'>
                         {/* onAddHandler => Fn for Search Input */}
                         {/* region => Data for Dropdown menu */}
-                        <Inputs allCountries={allCountries} setAllCountries={setAllCountries} region={region} />
+                        <Inputs
+                        allCountries={allCountries}
+                        setAllCountries={setAllCountries}
+                        setSearchedCountry={setSearchedCountry}
+                        region={region}
+                        />
                     </Col>
                     {/* lg='12' xs='12' */}
                     <Col lg='12' xs='12'>
-                        <Countries data={allCountries} />
+                        <Countries 
+                        allCountries={allCountries}
+                        searchedCountry={searchedCountry}
+                        />
                     </Col>
                 </Row>
             </Wrapper>

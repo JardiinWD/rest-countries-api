@@ -6,10 +6,10 @@ import { Col, Row } from 'reactstrap'
 import classes from './styles/Countries.module.scss'
 
 
-const Countries = (props) => {
+const Countries = ({allCountries, searchedCountry}) => {
 
     // Initial Data (as requested by the screenshot)
-    console.log(props);
+    //console.log(searchedCountry)
 
     return (
         /* Fragment */
@@ -19,7 +19,15 @@ const Countries = (props) => {
                 {/* Row Component */}
                 <Row className="g-5">
                     {
-                        props.data && props.data.slice(0, 8).map((el, index) => {
+                        searchedCountry.length < 1 ? allCountries.map((el, index) => {
+                            return (
+                                /* lg='3' xs='12' */
+                                <Col lg='3' xs='12' key={index}>
+                                    {/* CountryCard component */}
+                                    <CountryCard data={el} />
+                                </Col>
+                            )
+                        }) : searchedCountry.map((el, index) => {
                             return (
                                 /* lg='3' xs='12' */
                                 <Col lg='3' xs='12' key={index}>

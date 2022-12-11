@@ -13,7 +13,7 @@ const CountryCard = (props) => {
     // I've created all my variables for every country
     const countryName = name.common
     const countryRegion = region
-    const countryCapital = capital[0]
+    const countryCapital = capital ?? 'capital not found'
     const countryPopulation = population
     const countryFlag = flags.png
 
@@ -49,7 +49,6 @@ const CountryCard = (props) => {
                     </div>
                 </Link>
             }
-            {/* Link rendering */}
 
         </Fragment>
     )

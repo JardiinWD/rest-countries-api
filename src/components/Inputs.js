@@ -10,15 +10,15 @@ import { RiArrowDropDownLine, RiArrowDropUpLine } from 'react-icons/ri'
 const Inputs = (props) => {
 
     // I've Took my region state from Homepage and my Handlers
-    const { region, allCountries, setAllCountries } = props
+    const { region, allCountries, setAllCountries, setSearchedCountry } = props
 
     // Toggling dropdown menu function (initially setted as false)
     const [isOpen, setIsOpen] = useState(false)
     // Selected option management
     const [selectedOption, setSelectedOption] = useState(null);
     // Input field where user can write his country 
-    const [searchedCountry, setSearchedCountry] = useState('')
 
+    const allCountriesToFilter = [...allCountries]
 
     // Toggling handler function
     const togglingHandler = () => {
@@ -35,18 +35,15 @@ const Inputs = (props) => {
 
     // Set my search input field on searchedCountry
     const onSearchCountry = (e) => {
-        // Preventing Default
-        e.preventDefault()
-        if (e.target.value) {
-            // Then I filter my results, based on what the user searched for
-            const findResult = allCountries.filter(item => {
-                // I will return the single item that was equal to input field
-                return item.name.common.toLowerCase().includes(e.target.value.toLowerCase());
+        const userInput = e.target.value.toLowerCase()
+        
+        if (userInput) {
+            const foundCountry = allCountriesToFilter.filter(item => {
+                return item.name.common.toLowerCase().includes(userInput);
             })
-            // If I find something then I will update my current state with the result
-            // Else I will setAllCountries with allCountries
-            findResult && findResult.length > 0 ? setAllCountries(findResult) : setAllCountries(allCountries)
-        }
+            setSearchedCountry(foundCountry)
+        } 
+        setAllCountries(allCountries)
     }
 
 
