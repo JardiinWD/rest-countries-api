@@ -25,10 +25,39 @@ const Inputs = (props) => {
         // Use the not operator as a toggle
         setIsOpen(!isOpen)
     }
+
+    /** Function for filteredRegions
+     * 
+     * @param {string} value Option Selected
+     * @param {variable} variable // My variable to return
+     */
+    const regionsHandler = (value, variable) => {
+        // I create a variable where I filter my main array
+        variable = allCountriesToFilter.filter(item => {
+            return item.region.includes(value)
+        })
+        // I will filter my setSearchedCountry with the variable
+        setSearchedCountry(variable)
+    }
+
     // Selected Option
     const optionClicked = value => () => {
         // Take the selected option value and update
         setSelectedOption(value);
+
+        // I create a new variable for the filteredRegions
+        let filteredRegion;
+        // If users chose Oceania I invoke my regionsHandler fn
+        if (value === 'Oceania') { regionsHandler(value, filteredRegion) }
+        // If users chose Africa ...
+        if (value === 'Africa') { regionsHandler(value, filteredRegion) }
+        // If users chose Europe ...
+        if (value === 'Europe') { regionsHandler(value, filteredRegion) }
+        // If users chose Americas ...
+        if (value === 'Americas') { regionsHandler(value, filteredRegion) }
+        // If users chose Asia ...
+        if (value === 'Asia') { regionsHandler(value, filteredRegion) }
+
         // Autoclose the dropdown menu
         setIsOpen(false)
     }
@@ -36,13 +65,13 @@ const Inputs = (props) => {
     // Set my search input field on searchedCountry
     const onSearchCountry = (e) => {
         const userInput = e.target.value.toLowerCase()
-        
+        // filtered by userInput 
         if (userInput) {
             const foundCountry = allCountriesToFilter.filter(item => {
                 return item.name.common.toLowerCase().includes(userInput);
             })
             setSearchedCountry(foundCountry)
-        } 
+        }
         setAllCountries(allCountries)
     }
 
