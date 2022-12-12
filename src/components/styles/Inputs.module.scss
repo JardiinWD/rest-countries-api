@@ -2,7 +2,7 @@
 @import '../../styles/utils.scss';
 
 .row {
-    @include rowDetails(1440px !important, 50px auto !important, 0px !important);
+    @include rowDetails(1440px !important, 40px auto !important, 0px !important);
     height: 55px;
     /* Internal Items */
     @include flexUtils(flex, center, space-between);

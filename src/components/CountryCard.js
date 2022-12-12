@@ -13,10 +13,9 @@ const CountryCard = (props) => {
     // I've created all my variables for every country
     const countryName = name.common
     const countryRegion = region
-    const countryCapital = capital ?? 'capital not found'
+    const countryCapital = capital ?? 'Capital Not Found'
     const countryPopulation = population
     const countryFlag = flags.png
-
 
     return (
         <Fragment>
@@ -29,7 +28,7 @@ const CountryCard = (props) => {
                         {/* classes.card_info */}
                         <ul className={classes.card_info}>
                             {/* classes.title */}
-                            <li className={classes.title}>{countryName}</li>
+                            <li className={classes.title}>{countryName.length > 25 ? countryName.substring(0, 25) + '...' : countryName}</li>
                             {/* classes.card_item */}
                             <li className={classes.card_item}>
                                 <span>Population: </span>
@@ -43,7 +42,7 @@ const CountryCard = (props) => {
                             {/* classes.card_item */}
                             <li className={classes.card_item}>
                                 <span>Capital: </span>
-                                <span>{countryCapital}</span>
+                                <span>{countryCapital[0]}</span>
                             </li>
                         </ul>
                     </div>

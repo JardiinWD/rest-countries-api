@@ -6,7 +6,7 @@ import { Col, Row } from 'reactstrap'
 import classes from './styles/Countries.module.scss'
 
 
-const Countries = ({allCountries, searchedCountry}) => {
+const Countries = ({ allCountries, searchedCountry }) => {
 
     // Initial Data (as requested by the screenshot)
     //console.log(searchedCountry)
@@ -17,7 +17,7 @@ const Countries = ({allCountries, searchedCountry}) => {
             {/* Wrapper Component */}
             <Wrapper className="">
                 {/* Row Component */}
-                <Row className="g-5">
+                <Row className="gx-5 gy-3">
                     {
                         searchedCountry.length < 1 ? allCountries.map((el, index) => {
                             return (

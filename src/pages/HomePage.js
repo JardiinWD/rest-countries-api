@@ -13,50 +13,42 @@ import classes from './styles/Homepage.module.scss'
 // Components
 import Countries from '../components/Countries'
 import Inputs from '../components/Inputs'
+import Pagination from '../components/Pagination'
+
 
 const HomePage = () => {
-    // Countries useState
     // All countries useState (for filtering)
     const [allCountries, setAllCountries] = useState([])
-
+    // useState for inputs 
     const [searchedCountry, setSearchedCountry] = useState([])
     // Countries useState
     const [region, setRegion] = useState([])
-    // TODO: Input Search useState
-    const [searchCountry, setSearchCountry] = useState('')
+    // useState for current Page
+    const [currentPage, setCurrentPage] = useState(1) // Initial Index
+    const [cardsPerPage, setCardsPerPage] = useState(8) // I want 8 cards per page
+    const lastPostIndex = currentPage * cardsPerPage // This is the last index of my pagination
+    const firstPostIndex = lastPostIndex - cardsPerPage // This is the first index of my pagination
+    const currentCards = allCountries.slice(firstPostIndex, lastPostIndex) // This is my array sliced by index
+
     // API Method for 8 countries (Homepage) as requested by screenshot
-    // FIXME: Implement the useContext Tool
     const fetchAllCountries = async () => {
-        // Save on a variable my axios response
         const response = await axios.get("https://restcountries.com/v3.1/all").then(response => response.data).catch(error => console.error(error))
-        // I will save all the countries on allCountries 
         setAllCountries(response)
-        // Then I wanted to save just 8 results as seen by the screenshot
-        // const slicedResponse = response.slice(0, 8)
-        // Then I will save the result and update my current countries state
-        // setInitialCountries(slicedResponse)
     }
 
-    // FIXME: Implement the useContext Tool
-    // API Method for Filtered regions as requested
     const fetchRegions = async () => {
         // Save on a variable my axios response
         const response = await axios.get("https://restcountries.com/v3.1/all").then(response => response.data).catch(error => console.error(error))
-        // I create an empty array for my elements
-        const regions = []
+        const regions = [] // An empty array for my elements
         // I have filtered my response 
         response.forEach(element => {
-            // Take all the regions from my response
             const allRegions = element.region
-            // I've push my full list of regions inside my empty array 
-            regions.push(allRegions)
+            regions.push(allRegions) // I push on my empty array
         });
         // I've created a new variable where I reduce the previous array with unique Values
-        // I've used this method instead of set
         const uniqueRegions = regions.filter((el, index) => {
             return regions.indexOf(el) === index
         }).slice(0, 5)
-        // I set my current state with my unique values
         setRegion(uniqueRegions)
     }
 
@@ -79,20 +71,30 @@ const HomePage = () => {
                 <Row className={classes.row}>
                     {/* lg='12' xs='12' */}
                     <Col lg='12' xs='12'>
-                        {/* onAddHandler => Fn for Search Input */}
+                        {/* setSearchedCountry => Fn for Search Input */}
                         {/* region => Data for Dropdown menu */}
                         <Inputs
-                        allCountries={allCountries}
-                        setAllCountries={setAllCountries}
-                        setSearchedCountry={setSearchedCountry}
-                        region={region}
+                            allCountries={allCountries}
+                            setAllCountries={setAllCountries}
+                            setSearchedCountry={setSearchedCountry}
+                            region={region}
                         />
                     </Col>
                     {/* lg='12' xs='12' */}
                     <Col lg='12' xs='12'>
-                        <Countries 
-                        allCountries={allCountries}
-                        searchedCountry={searchedCountry}
+                        <Countries
+                            allCountries={currentCards}
+                            searchedCountry={searchedCountry}
+                        />
+                    </Col>
+                    {/* lg='12' xs='12' */}
+                    <Col className='pt-3' lg='12' xs='12'>
+                        {/* Pagination Component */}
+                        <Pagination
+                            totalCards={allCountries.length}
+                            cardsPerPage={cardsPerPage}
+                            setCurrentPage={setCurrentPage}
+                            currentPage={currentPage}
                         />
                     </Col>
                 </Row>
