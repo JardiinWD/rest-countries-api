@@ -48,15 +48,13 @@ const Inputs = (props) => {
         // I create a new variable for the filteredRegions
         let filteredRegion;
         // If users chose Oceania I invoke my regionsHandler fn
-        if (value === 'Oceania') { regionsHandler(value, filteredRegion) }
-        // If users chose Africa ...
-        if (value === 'Africa') { regionsHandler(value, filteredRegion) }
-        // If users chose Europe ...
-        if (value === 'Europe') { regionsHandler(value, filteredRegion) }
-        // If users chose Americas ...
-        if (value === 'Americas') { regionsHandler(value, filteredRegion) }
-        // If users chose Asia ...
-        if (value === 'Asia') { regionsHandler(value, filteredRegion) }
+        if (
+            value === 'Oceania' ||
+            value === 'Africa' ||
+            value === 'Europe' ||
+            value === 'Americas' ||
+            value === 'Asia'
+        ) regionsHandler(value, filteredRegion)
 
         // Autoclose the dropdown menu
         setIsOpen(false)
