@@ -2,10 +2,11 @@
 @import '../../styles/utils.scss';
 
 .pagination_wrapper {
+    padding-top: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: fit-content;
+    height: 40px;
     /* Button */
     button {
         background-color: $dark-gray;

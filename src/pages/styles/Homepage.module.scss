@@ -7,30 +7,33 @@
     padding: 0 !important;
 }
 
-.homepage {
-    height: fit-content !important;
+.homepage  {
+    position: relative;
+    height: calc(100vh - 80px);
     padding-bottom: 30px !important;
     background-color: $very-dark-blue;
     color: $white-color;
 }
+/* Classes for Pagination */
+.pagination {
+    position: absolute;
+    bottom: 0;
+    left:0;
+    transform: translateY(-50%)
+}
 
 .row {
     @include rowDetails(1440px !important, 0 auto !important, 0px 65px 0px 65px !important);
-    height: fit-content;
 }
-
 
 
 /* M.Queries for 1440px */
 @media only screen and (max-width: 1440px) {
-    
     .homepage {
-        height: fit-content !important;
         margin-bottom: 40px;
     }
 
     .row  {
-        height: fit-content !important;
         margin-bottom: 50px;
     }
 }

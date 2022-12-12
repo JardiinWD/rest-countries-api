@@ -29,6 +29,8 @@ const HomePage = () => {
     const lastPostIndex = currentPage * cardsPerPage // This is the last index of my pagination
     const firstPostIndex = lastPostIndex - cardsPerPage // This is the first index of my pagination
     const currentCards = allCountries.slice(firstPostIndex, lastPostIndex) // This is my array sliced by index
+    const filteredCards = searchedCountry.slice(firstPostIndex, lastPostIndex)
+
 
     // API Method for 8 countries (Homepage) as requested by screenshot
     const fetchAllCountries = async () => {
@@ -84,14 +86,15 @@ const HomePage = () => {
                     <Col lg='12' xs='12'>
                         <Countries
                             allCountries={currentCards}
-                            searchedCountry={searchedCountry}
+                            searchedCountry={filteredCards}
                         />
                     </Col>
                     {/* lg='12' xs='12' */}
-                    <Col className='pt-3' lg='12' xs='12'>
+                    <Col className={classes.pagination} lg='12' xs='12'>
                         {/* Pagination Component */}
                         <Pagination
                             totalCards={allCountries.length}
+                            filteredCards={searchedCountry.length}
                             cardsPerPage={cardsPerPage}
                             setCurrentPage={setCurrentPage}
                             currentPage={currentPage}

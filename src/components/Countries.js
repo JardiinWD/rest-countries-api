@@ -15,7 +15,7 @@ const Countries = ({ allCountries, searchedCountry }) => {
         /* Fragment */
         <Fragment>
             {/* Wrapper Component */}
-            <Wrapper className="">
+            <Wrapper className={classes.countries}>
                 {/* Row Component */}
                 <Row className="gx-5 gy-3">
                     {
