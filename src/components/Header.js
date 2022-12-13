@@ -22,7 +22,7 @@ const Header = () => {
                         {/* Darkmode toggle */}
                         <div className={`${classes.toggle}`}>
                             {/* Icon */}
-                            <span className={classes.moon}>
+                            <span className={classes.mode_icon}>
                                 {/* BsMoonFill */}
                                 <BsMoonFill />
                             </span>

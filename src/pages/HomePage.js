@@ -9,11 +9,12 @@ import Helmet from '../utils/Helmet'
 import Wrapper from '../utils/Wrapper'
 // Page Stylesheet
 import classes from './styles/Homepage.module.scss'
-
 // Components
 import Countries from '../components/Countries'
 import Inputs from '../components/Inputs'
 import Pagination from '../components/Pagination'
+
+
 
 
 const HomePage = () => {
@@ -32,12 +33,13 @@ const HomePage = () => {
     const filteredCards = searchedCountry.slice(firstPostIndex, lastPostIndex)
 
 
-    // API Method for 8 countries (Homepage) as requested by screenshot
+    // API Method for fetching countries 
     const fetchAllCountries = async () => {
         const response = await axios.get("https://restcountries.com/v3.1/all").then(response => response.data).catch(error => console.error(error))
         setAllCountries(response)
     }
 
+    // API Method for fetching regions
     const fetchRegions = async () => {
         // Save on a variable my axios response
         const response = await axios.get("https://restcountries.com/v3.1/all").then(response => response.data).catch(error => console.error(error))

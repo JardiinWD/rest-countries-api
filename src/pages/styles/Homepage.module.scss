@@ -4,13 +4,11 @@
 .helmet {
     max-width: 100%;
     background-color: $very-dark-blue;
-    padding: 0 !important;
 }
 
 .homepage  {
     position: relative;
     height: calc(100vh - 80px);
-    padding-bottom: 30px !important;
     background-color: $very-dark-blue;
     color: $white-color;
 }
@@ -28,11 +26,16 @@
 
 
 /* M.Queries for 1440px */
-@media only screen and (max-width: 1440px) {
+@media only screen and (min-width: 1439px) {
     .homepage {
-        margin-bottom: 40px;
+        padding-bottom: 10px;
     }
-
+    .pagination {
+        position: absolute;
+        bottom: 0;
+        left:0;
+        transform: translateY(-50%)
+    }
     .row  {
         margin-bottom: 50px;
     }

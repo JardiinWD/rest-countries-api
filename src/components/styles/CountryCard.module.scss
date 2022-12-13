@@ -5,7 +5,6 @@
     text-decoration: none;
 }
 
-
 .card {
     width: 100%;
     border-radius: 8px;
@@ -35,9 +34,7 @@
 }
 
 .card_info .title {
-    color: $white-color;
-    font-size: $fs-16;
-    font-weight: $fw-800;
+    @include cardItemUtils($white-color, $fs-16, $fw-800);
     padding-bottom: 0.75rem;
 }
 

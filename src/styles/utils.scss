@@ -14,6 +14,7 @@ $fs-14: 14px;
 $fs-16: 16px;
 
 /* Mixins */
+
 @mixin rowDetails($width, $margin, $padding) {
     max-width: $width;
     margin: $margin;
@@ -26,9 +27,14 @@ $fs-16: 16px;
     justify-content: $justify-content;
 }
 
-/* CountryCard.module.scss */
 @mixin cardItemUtils($color, $font, $weight) {
     color: $color;
     font-size: $font;
     font-weight: $weight;
+}
+
+@mixin buttonUtils($border, $border_r, $outline) {
+    border: $border;
+    border-radius: $border_r;
+    outline: $outline;
 }

@@ -3,23 +3,19 @@
 
 .pagination_wrapper {
     padding-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include flexUtils(flex, center, center);
     height: 40px;
     /* Button */
     button {
+        @include cardItemUtils($white-color, $fs-16, $fw-600);
         background-color: $dark-gray;
-        color: $white-color;
         width: 30px;
-        border-radius: 5px;
-        border: none;
-        outline: none;
+        @include buttonUtils(none, 5px, none);
         margin-right: 0.65rem;
     }
 }
 
 button.active_page {
-    color: $dark-gray;
+    color: $very-dark-blue;
     background-color: $white-color;
 }
