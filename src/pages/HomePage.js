@@ -79,6 +79,7 @@ const HomePage = () => {
                             allCountries={allCountries}
                             setAllCountries={setAllCountries}
                             setSearchedCountry={setSearchedCountry}
+                            setCurrentPage={setCurrentPage}
                             region={region}
                         />
                     </Col>

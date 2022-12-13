@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 // Classes
 import classes from './styles/CountryCard.module.scss'
 // Utils Format number for population
-import { FormatNumber, FormatString } from '../../src/utils/Format'
+import { FormatNumber } from '../../src/utils/Format'
 // Link utils for Card rendering
 import { Link } from 'react-router-dom'
 

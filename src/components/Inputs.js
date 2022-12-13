@@ -10,7 +10,7 @@ import { RiArrowDropDownLine, RiArrowDropUpLine } from 'react-icons/ri'
 const Inputs = (props) => {
 
     // I've Took my region state from Homepage and my Handlers
-    const { region, allCountries, setAllCountries, setSearchedCountry } = props
+    const { region, allCountries, setAllCountries, setSearchedCountry, setCurrentPage } = props
 
     // Toggling dropdown menu function (initially setted as false)
     const [isOpen, setIsOpen] = useState(false)
@@ -58,6 +58,9 @@ const Inputs = (props) => {
 
         // Autoclose the dropdown menu
         setIsOpen(false)
+        // Set the current page on Initial Index
+        // On every Change I will set my current page on Index 1
+        setCurrentPage(1)
     }
 
     // Set my search input field on searchedCountry
