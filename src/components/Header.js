@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext } from 'react'
 import { Col, Row } from 'reactstrap'
 import classes from './styles/Header.module.scss'
 import Wrapper from '../utils/Wrapper'
@@ -6,8 +6,16 @@ import Wrapper from '../utils/Wrapper'
 import { Link } from 'react-router-dom'
 // Icon
 import { BsMoonFill } from 'react-icons/bs'
+// GlobalContext
+import { GlobalContext } from '../context/GlobalState'
+
 
 const Header = () => {
+
+    // I will invoke the Global Context
+    const { mode, switchMode } = useContext(GlobalContext)
+    console.log(`Sono state globale dentro a Header ${mode}`);
+
     return (
         /* Helmet */
         <Fragment>
@@ -20,7 +28,7 @@ const Header = () => {
                         {/* Header Title */}
                         <Link className={classes.link} to='/home'>Where in the world?</Link>
                         {/* Darkmode toggle */}
-                        <div className={`${classes.toggle}`}>
+                        <div onClick={switchMode} className={`${classes.toggle}`}>
                             {/* Icon */}
                             <span className={classes.mode_icon}>
                                 {/* BsMoonFill */}

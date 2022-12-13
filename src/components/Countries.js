@@ -1,15 +1,17 @@
-import React, { Fragment } from 'react'
+import React, { Fragment, useContext } from 'react'
 import CountryCard from './CountryCard'
 import Wrapper from '../utils/Wrapper'
 // Reactstrap components
 import { Col, Row } from 'reactstrap'
 import classes from './styles/Countries.module.scss'
-
+// GlobalContext
+import { GlobalContext } from '../context/GlobalState'
 
 const Countries = ({ allCountries, searchedCountry }) => {
 
-    // Initial Data (as requested by the screenshot)
-    //console.log(searchedCountry)
+    // I will invoke the Global Context
+    const { mode } = useContext(GlobalContext)
+    console.log(`Sono state globale dentro a Countries ${mode}`);
 
     return (
         /* Fragment */
