@@ -105,7 +105,7 @@ const Inputs = (props) => {
                             {/* dropdown_header */}
                             <div onClick={togglingHandler} className={classes.dropdown_header}>
                                 {/* Text */}
-                                <span>Filter by Region</span>
+                                <span>{selectedOption ? selectedOption : 'Filter by Region'}</span>
                                 {/* Icon conditions */}
                                 {
                                     isOpen ? (

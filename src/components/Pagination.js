@@ -19,8 +19,6 @@ const Pagination = ({ cardsPerPage, totalCards, setCurrentPage, currentPage, fil
         pagesForFilter.push(i)
     }
 
-
-
     return (
         /* classes.pagination_wrapper */
         <div className={classes.pagination_wrapper}>
