@@ -11,7 +11,6 @@ const Countries = ({ allCountries, searchedCountry }) => {
 
     // I will invoke the Global Context
     const { mode } = useContext(GlobalContext)
-    console.log(`Sono state globale dentro a Countries ${mode}`);
 
     return (
         /* Fragment */
