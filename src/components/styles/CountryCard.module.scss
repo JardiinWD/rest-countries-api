@@ -8,7 +8,7 @@
 .card {
     width: 100%;
     border-radius: 8px;
-    box-shadow: 0.5px 0.5px 3px 1px rgb(15 15 15);
+    box-shadow: 0.5px 0.5px 3px 1px var(--shadow-background);
 }
 
 .card_img {
@@ -28,6 +28,9 @@
 
 .card_info {
     padding: 1.25rem 1.25rem;
+    background-color: var(--secondary-color);
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
     li {
         list-style: none;
     }

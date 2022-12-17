@@ -9,14 +9,18 @@ $very-light-gray: hsl(0, 0%, 98%); /* Light Mode Background */
 
 /* Setted for DarkMode */
 :root {
-    /* Darkmode */
     --primary-color: hsl(207, 26%, 17%); /* Darkmode Background */
     --secondary-color: hsl(209, 23%, 22%); /* Darkmode Elements */
     --text-color: hsl(0, 0%, 100%); /* Dark Mode Text */
-    /* Lightmode */
-    // --primary-color: hsl(0, 0%, 98%); /* lightmode Background */
-    // --secondary-color: hslhsl(0, 0%, 52%); /* lightmode Elements */
-    // --text-color: hsl(200, 15%, 8%); /* lightmode Text */
+    --shadow-background: #1E2B34; /* Box Shadow  */
+}
+
+/* Lightmode Theme */
+.light-theme {
+    --primary-color: #FAFAFA; /* lightmode Background */
+    --secondary-color: #FFFFFF; /* lightmode Elements */
+    --text-color: #17181A; /* lightmode Text */
+    --shadow-background: #F0F0F0; /* Box Shadow  */
 }
 
 

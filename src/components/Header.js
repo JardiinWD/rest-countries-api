@@ -33,20 +33,21 @@ const Header = () => {
                                     <>
                                         {/* mode_icon */}
                                         <span className={classes.mode_icon}>
-                                            <BsMoonFill />
-                                        </span>
-                                        {/* Dark Mode */}
-                                        <span>Dark Mode</span>
-                                    </>
-                                ) : (
-                                    <>
-                                        {/* mode_icon */}
-                                        <span className={classes.mode_icon}>
                                             <BsSunFill />
                                         </span>
                                         {/* Light Mode */}
                                         <span>Light Mode</span>
                                     </>
+                                ) : (
+                                    <>
+                                        {/* mode_icon */}
+                                        <span className={classes.mode_icon}>
+                                            <BsMoonFill />
+                                        </span>
+                                        {/* Dark Mode */}
+                                        <span>Dark Mode</span>
+                                    </>
+
                                 )
                             }
                         </div>

@@ -13,6 +13,8 @@ export const GlobalContextProvider = ({ children }) => {
     // I've created the switchmode fn, that allows me to change mode (light/dark)
     const switchMode = () => {
         setMode(!mode)
+        if (mode) document.body.classList.add("light-theme")
+        if (!mode) document.body.classList.remove("light-theme")
     }
 
     // I have to return my Provider and wrapping my children
@@ -21,7 +23,7 @@ export const GlobalContextProvider = ({ children }) => {
         <GlobalContext.Provider value={
             {
                 mode,
-                switchMode
+                switchMode,
             }
         }>
             {children}

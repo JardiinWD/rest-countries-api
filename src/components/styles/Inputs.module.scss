@@ -11,6 +11,8 @@
 /* Col utils */
 .col {
     padding: 0% !important;
+    background-color: var(--secondary-color);
+    box-shadow: 0px 0px 2px var(--shadow-background);
 }
 
 /* Column for Input Search */
@@ -25,12 +27,13 @@
     height: 55px;
     border-radius: 5px;
     @include flexUtils(flex, center, space-between);
-    box-shadow: 0px 0px 3px var(--secondary-color);
+    box-shadow: 0px 0px 2px var(--shadow-background);
 }
 
 /* Input Search Button */
 .search_button {
     width: 75px;
+    background-color: inherit;
     color: var(--text-color);
     height: 100%;
     @include flexUtils(flex, center, center);
@@ -43,7 +46,7 @@
     /* Input text */
     input {
         @include cardItemUtils(var(--text-color), $fs-16, $fw-600);
-        background-color: var(--secondary-color);
+        background-color: inherit;
         width: 100%;
         height: 100%;
         outline: none;
@@ -58,14 +61,15 @@
 .dropdown_container {
     width: 100%;
     margin: 0 auto;
-    box-shadow: 0px 0px 3px var(--secondary-color);
+    background-color: var(--secondary-color);
+    box-shadow: 0px 0px 3px var(--shadow-background);
     position: relative;
 }
 
 .dropdown_header,
 .dropdown_list {
     @include cardItemUtils(var(--text-color), $fs-14, $fw-600);
-    background-color: var(--secondary-color);
+    background-color: inherit;
     border-radius: 5px;
 }
 
@@ -84,7 +88,8 @@
 
 .dropdown_list {
     position: absolute;
-    box-shadow: 0px 0px 3px var(--secondary-color);
+    box-shadow: 0px 0px 3px var(--shadow-background);
+    background-color: var(--secondary-color);
     top: 110%;
     left: 0;
     width: 100%;
