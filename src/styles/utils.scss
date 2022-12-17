@@ -1,11 +1,3 @@
-/* Color palette */
-$very-dark-blue: hsl(207, 26%, 17%);  /* Darkmode Background */
-$dark-blue: hsl(209, 23%, 22%); /* Darkmode Elements */
-$white-color: hsl(0, 0%, 100%); /* Dark Mode Text */
-$light-dark-blue: hsl(200, 15%, 8%);  /* Light Mode Text */
-$dark-gray: hsl(0, 0%, 52%);  /* Light Mode Input */ 
-$very-light-gray: hsl(0, 0%, 98%); /* Light Mode Background */
-
 
 /* Setted for DarkMode */
 :root {
@@ -22,7 +14,6 @@ $very-light-gray: hsl(0, 0%, 98%); /* Light Mode Background */
     --text-color: #17181A; /* lightmode Text */
     --shadow-background: #F0F0F0; /* Box Shadow  */
 }
-
 
 /* Font size and family */
 $fw-300: 300;

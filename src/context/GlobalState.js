@@ -3,7 +3,7 @@ import React, { createContext, useState } from 'react'
 
 // Create my initial State, setted as False
 const initialState = {
-    darkMode: false
+    darkMode: true
 }
 
 export const GlobalContextProvider = ({ children }) => {
@@ -12,9 +12,10 @@ export const GlobalContextProvider = ({ children }) => {
 
     // I've created the switchmode fn, that allows me to change mode (light/dark)
     const switchMode = () => {
+        // I've updated my global state with the "not" operator
         setMode(!mode)
-        if (mode) document.body.classList.add("light-theme")
-        if (!mode) document.body.classList.remove("light-theme")
+        // Then I will set my condition for the light-theme mode
+        mode ? document.body.classList.add("light-theme") : document.body.classList.remove("light-theme")
     }
 
     // I have to return my Provider and wrapping my children
