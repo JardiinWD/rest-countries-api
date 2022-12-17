@@ -24,17 +24,18 @@ const Pagination = ({ cardsPerPage, totalCards, setCurrentPage, currentPage, fil
         <div className={classes.pagination_wrapper}>
             {
                 /* If users didn't filter data for regions or inputs? */
-                !filteredCards ? (pagesForAll.map((page, index) => {
-                    return (
-                        <button
-                            onClick={() => setCurrentPage(page)}
-                            key={index}
-                            className={page === currentPage ? `${classes.active_page}` : ''}
-                        >
-                            {page}
-                        </button>
-                    )
-                })
+                !filteredCards ? (
+                    pagesForAll.map((page, index) => {
+                        return (
+                            <button
+                                onClick={() => setCurrentPage(page)}
+                                key={index}
+                                className={page === currentPage ? `${classes.active_page}` : ''}
+                            >
+                                {page}
+                            </button>
+                        )
+                    })
                 ) : (
                     pagesForFilter.map((page, index) => {
                         return (

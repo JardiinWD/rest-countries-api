@@ -34,16 +34,16 @@
 }
 
 .card_info .title {
-    @include cardItemUtils($white-color, $fs-16, $fw-800);
+    @include cardItemUtils(var(--text-color), $fs-16, $fw-800);
     padding-bottom: 0.75rem;
 }
 
 .card_item {
     line-height: 28px;
     span:nth-child(1){
-        @include cardItemUtils($white-color, $fs-14, $fw-600);
+        @include cardItemUtils(var(--text-color), $fs-14, $fw-600);
     }
     span:nth-child(2){
-        @include cardItemUtils($white-color, $fs-14, $fw-300)
+        @include cardItemUtils(var(--text-color), $fs-14, $fw-300)
     }    
 }

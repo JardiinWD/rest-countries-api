@@ -7,8 +7,8 @@
     height: 40px;
     /* Button */
     button {
-        @include cardItemUtils($white-color, $fs-16, $fw-600);
-        background-color: $dark-gray;
+        @include cardItemUtils(var(--text-color), $fs-16, $fw-600);
+        background-color: var(--secondary-color);
         width: 30px;
         @include buttonUtils(none, 5px, none);
         margin-right: 0.65rem;
@@ -16,6 +16,6 @@
 }
 
 button.active_page {
-    color: $very-dark-blue;
-    background-color: $white-color;
+    color: var(--primary-color);
+    background-color: var(--text-color);
 }

@@ -19,7 +19,7 @@ const Header = () => {
         /* Helmet */
         <Fragment>
             {/* Wrapper */}
-            <Wrapper className={mode ? `${classes.header_light}` : `${classes.header_dark}`}>
+            <Wrapper className={classes.header}>
                 {/* Row */}
                 <Row className={classes.row_header}>
                     {/* xs='12' lg='12' */}

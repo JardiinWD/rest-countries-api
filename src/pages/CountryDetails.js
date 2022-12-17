@@ -23,7 +23,6 @@ const CountryDetails = () => {
     // Single country' useState
     const [country, setCountry] = useState([])
 
-
     // useEffect hooks created for async functions 
     useEffect(() => {
         // API Method for the selected country/*  */
@@ -113,7 +112,6 @@ const CountryDetails = () => {
             data: country.capital ?? 'Undefined'
         },
     ]
-
 
     return (
         /* Helmet component */

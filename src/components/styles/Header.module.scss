@@ -1,19 +1,13 @@
 /* Utils stylesheet */
 @import '../../styles/utils.scss';
 
-/* LightMode */
-.header_light {
+
+.header {
     height: 80px;
-    background-color: $very-light-gray;
-    color: $light-dark-blue;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
 }
 
-/* DarkMode */
-.header_dark {
-    height: 80px;
-    background-color: $dark-blue;
-    color: $white-color;
-}
 
 /* row */
 .row_header {
@@ -23,12 +17,12 @@
 
 .link,
 .link:hover {
-    @include cardItemUtils(inherit, 20px, $fw-800);
+    @include cardItemUtils(var(--text-color), 20px, $fw-800);
     text-decoration: none;
 }
 
 .toggle {
-    @include cardItemUtils(inherit, $fs-16, $fw-600);
+    @include cardItemUtils(var(--text-color), $fs-16, $fw-600);
     /* Spacing */
     @include flexUtils(flex, center, space-around);
     width: fit-content;
@@ -36,7 +30,7 @@
     cursor: pointer;
     /* mode_icon */
     .mode_icon {
-        color: inherit;
+        color: var(--text-color);
         padding-right: 10px;
     }
 }

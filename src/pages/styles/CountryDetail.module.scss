@@ -3,14 +3,14 @@
 
 .helmet {
     max-width: 100%;
-    background-color: $very-dark-blue;
+    background-color: var(--secondary-color);
     padding: 0 !important;
 }
 
 .homepage {
     height: calc(100vh - 80px) !important;
-    background-color: $very-dark-blue;
-    color: $white-color;
+    background-color: var(--primary-color);
+    color: var(--text-color);
 }
 
 .row {
@@ -35,10 +35,8 @@
     width: 135px;
     height: 100%;
     /* Style */
-    background-color: $dark-blue;
-    color: $white-color;
-    font-size: $fs-16;
-    font-weight: $fw-600;
+    background-color: var(--secondary-color);
+    @include cardItemUtils(var(--text-color), $fs-16, $fw-600);
     outline: none;
     border: none;
     border-radius: 5px;
@@ -56,7 +54,7 @@
 
 .redirect:hover {
     text-decoration: none;
-    color: $white-color;
+    color: var(--text-color);
 }
 
 
@@ -89,9 +87,7 @@
     /* H4 */
     h4 {
         margin-bottom: 0;
-        color: $white-color;
-        font-size: 30px;
-        font-weight: $fw-800;
+        @include cardItemUtils(var(--text-color), 30px, $fw-800);
     }
 }
 
@@ -116,10 +112,10 @@
         /* Single List Item */
         li {
             span:nth-child(1){
-                @include cardItemUtils($white-color, $fs-16, $fw-600);
+                @include cardItemUtils(var(--text-color), $fs-16, $fw-600);
             }
             span:nth-child(2){
-                @include cardItemUtils($white-color, $fs-16, $fw-300)
+                @include cardItemUtils(var(--text-color), $fs-16, $fw-300)
             }  
         }
     }
@@ -134,7 +130,7 @@
     align-items: center;
     /* Title */
     span{
-        @include cardItemUtils($white-color, $fs-16, $fw-600);
+        @include cardItemUtils(var(--text-color), $fs-16, $fw-600);
     }
 }
 
@@ -142,16 +138,13 @@
     display: inline;
     /* Button Country */
     span {
-        @include cardItemUtils($white-color, $fs-16, $fw-300);
+        @include cardItemUtils(var(--text-color), $fs-16, $fw-300);
         cursor: pointer;
-        font-weight: $fw-300;
         margin-left: 10px;
         margin-bottom: 5px;
         padding: 5px 20px 5px 20px;
-        background-color: $dark-blue;
-        outline: none;
-        border: none;
-        border-radius: 5px;
+        background-color: var(--secondary-color);
+        @include buttonUtils(none, 5px, none);
         box-shadow: 0.5px 0.5px 0.5px 0.5px rgb(15 15 15);
     }
     a {
