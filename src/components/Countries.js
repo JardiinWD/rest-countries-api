@@ -4,13 +4,9 @@ import Wrapper from '../utils/Wrapper'
 // Reactstrap components
 import { Col, Row } from 'reactstrap'
 import classes from './styles/Countries.module.scss'
-// GlobalContext
-import { GlobalContext } from '../context/GlobalState'
+
 
 const Countries = ({ allCountries, searchedCountry }) => {
-
-    // I will invoke the Global Context
-    const { mode } = useContext(GlobalContext)
 
     return (
         /* Fragment */
