@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react'
+import React, { Fragment } from 'react'
 import CountryCard from './CountryCard'
 import Wrapper from '../utils/Wrapper'
 // Reactstrap components

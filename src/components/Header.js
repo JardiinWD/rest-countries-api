@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from 'react'
+import React, { Fragment, useContext } from 'react'
 import { Col, Row } from 'reactstrap'
 import classes from './styles/Header.module.scss'
 import Wrapper from '../utils/Wrapper'

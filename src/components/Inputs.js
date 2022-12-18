@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef, useCallback } from 'react'
+import React, { Fragment, useState } from 'react'
 // Reactstrap components
 import { Col, Row } from 'reactstrap'
 import Wrapper from '../utils/Wrapper'
@@ -48,13 +48,7 @@ const Inputs = (props) => {
         // I create a new variable for the filteredRegions
         let filteredRegion;
         // If users chose Oceania I invoke my regionsHandler fn
-        if (
-            value === 'Oceania' ||
-            value === 'Africa' ||
-            value === 'Europe' ||
-            value === 'Americas' ||
-            value === 'Asia'
-        ) regionsHandler(value, filteredRegion)
+        if (['Oceania', 'Africa', 'Europe', 'Americas', 'Asia'].includes(value)) regionsHandler(value, filteredRegion)
 
         // Autoclose the dropdown menu
         setIsOpen(false)

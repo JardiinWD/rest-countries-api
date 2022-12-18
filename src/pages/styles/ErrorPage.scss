@@ -1,0 +1,57 @@
+/* Utils stylesheet */
+@import '../../styles/utils.scss';
+/* Font Family */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+
+.helmet {
+    max-width: 100%;
+    background-color: var(--secondary-color);
+    padding: 0 !important;
+}
+
+.page_not_found {
+    height: calc(100vh - 80px) !important;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    @include flexUtils(flex, center, center);
+}
+
+.row_not_found {
+    @include rowDetails(1440px !important, 0 auto !important, 0px 65px 0px 65px !important);
+    text-align: center;
+    height: fit-content;
+}
+
+.notfound-404 h1,
+.notfound h2,
+.notfound a {
+    text-transform: uppercase;
+}
+
+.notfound-404 h1 {
+    font-family: 'Fredoka One' ,cursive;
+    font-size: 168px;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.notfound h2 {
+    @include cardItemUtils(var(--text-color), $fs-16, $fw-800);
+    text-transform: uppercase;
+    margin-bottom: 25px;
+}
+
+.notfound a {
+    @include cardItemUtils(var(--text-color), $fs-16, $fw-600);
+    text-decoration: none;
+    cursor: pointer;
+    padding: 5px 20px 5px 20px;
+    background-color: var(--secondary-color);
+    @include buttonUtils(none, 5px, none);
+    box-shadow: 0.5px 0.5px 0.5px 0.5px var(--shadow-background);
+}
+
+.notfound a:hover {
+    text-decoration: none;
+    color: var(--text-color);
+}
