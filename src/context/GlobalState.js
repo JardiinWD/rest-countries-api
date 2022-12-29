@@ -17,7 +17,6 @@ export const GlobalContextProvider = ({ children }) => {
     // Countries useState for Regions
     const [region, updateRegion] = useState(initialState.selectedRegion)
 
-
     // I've created the switchmode fn, that allows me to change mode (light/dark)
     const switchMode = () => {
         // I've updated my global state with the "not" operator
@@ -26,18 +25,17 @@ export const GlobalContextProvider = ({ children }) => {
         mode ? document.body.classList.add("light-theme") : document.body.classList.remove("light-theme")
     }
 
-    // API Method for fetching countries 
-    const fetchAllCountries = async () => {
-        const response = await axios.get("https://restcountries.com/v3.1/all").then(response => response.data).catch(error => console.error(error))
-        setAllCountries(response)
-    }
-
-
     // useEffect hooks created for async functions invoke
     useEffect(() => {
+        // API Method for fetching countries 
+        const fetchAllCountries = async () => {
+            const response = await axios.get("https://restcountries.com/v3.1/all").then(response => response.data).catch(error => console.error(error))
+            setAllCountries(response)
+        }
 
-        // I invoked my async function (For 8 countries) right here
-        fetchAllCountries()
+        if (allCountries.length <= 0) {
+            fetchAllCountries()
+        }
 
         // API Method for fetching regions
         const fetchRegions = async () => {
@@ -55,10 +53,10 @@ export const GlobalContextProvider = ({ children }) => {
             updateRegion(uniqueRegions)
         }
 
-        // I invoked my async function for regions
-        fetchRegions()
-        // I don't need any dependencies
-    }, [allCountries])
+        if (region.length <= 0) {
+            fetchRegions()
+        }
+    }, [allCountries, region])
 
 
     // I have to return my Provider and wrapping my children
