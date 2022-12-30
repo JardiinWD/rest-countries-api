@@ -4,7 +4,7 @@ import axios from 'axios'
 
 // Create my initial State, setted as False
 const initialState = {
-    darkMode: true,
+    darkMode: JSON.parse(localStorage.getItem("DarkMode")) || true,
     allCountries: [],
     selectedRegion: []
 }
@@ -27,18 +27,19 @@ export const GlobalContextProvider = ({ children }) => {
 
     // useEffect hooks created for async functions invoke
     useEffect(() => {
+        // Set local storage for darkmode
+        localStorage.setItem("DarkMode", JSON.stringify(initialState.darkMode))
+
+
         // API Method for fetching countries 
         const fetchAllCountries = async () => {
             const response = await axios.get("https://restcountries.com/v3.1/all").then(response => response.data).catch(error => console.error(error))
             setAllCountries(response)
         }
-
-        if (allCountries.length <= 0) {
-            fetchAllCountries()
-        }
+        if (allCountries.length <= 0) fetchAllCountries()
 
         // API Method for fetching regions
-        const fetchRegions = async () => {
+        const fetchRegions = () => {
             const regions = [] // An empty array for my elements
             // I have filtered my countries
             allCountries.forEach(element => {
@@ -52,11 +53,9 @@ export const GlobalContextProvider = ({ children }) => {
             // I will update my region state
             updateRegion(uniqueRegions)
         }
+        if (region.length <= 0) fetchRegions()
 
-        if (region.length <= 0) {
-            fetchRegions()
-        }
-    }, [allCountries, region])
+    }, [allCountries, region, mode])
 
 
     // I have to return my Provider and wrapping my children

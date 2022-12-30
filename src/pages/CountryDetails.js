@@ -14,7 +14,7 @@ import { FormatNumber } from '../utils/Format'
 import { BsArrowLeft } from 'react-icons/bs'
 
 
-const CountryDetails = () => {
+const CountryDetails = ({ allCountries }) => {
 
     /* Take the Country names from URLs */
     const { id } = useParams()
@@ -26,12 +26,9 @@ const CountryDetails = () => {
     // useEffect hooks created for async functions 
     useEffect(() => {
         // API Method for the selected country/*  */
-        // FIXME: Implement the useContext Tool
         const fetchSingleCountry = async () => {
             // Save on a variable my axios response
             const response = await axios.get(`https://restcountries.com/v3.1/name/${id}`).then(response => response.data[0]).catch(error => console.error(error))
-            // Then save on a variable all countries. I need this call for my array of borders
-            const allCountries = await axios.get("https://restcountries.com/v3.1/all").then(response => response.data).catch(error => console.error(error))
 
             // I need to fix some issues before I declared my country state
             // I declare some Variables (but I haven't initialized)
@@ -87,7 +84,7 @@ const CountryDetails = () => {
         // I invoked my async function for the selected country
         fetchSingleCountry()
         // I've used id as a dependency
-    }, [id])
+    }, [id, allCountries])
 
     // Data for Left Table (Created as Iterable)
     const leftTable = [

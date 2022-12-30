@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 // API URL (For All country) : "https://restcountries.com/v3.1/all"
 // API_URL (For a specific country) : "https://restcountries.com/v3.1/name/${name}"
 import { Col, Row } from 'reactstrap'
@@ -12,13 +12,9 @@ import classes from './styles/Homepage.module.scss'
 import Countries from '../components/Countries'
 import Inputs from '../components/Inputs'
 import Pagination from '../components/Pagination'
-// GlobalContext
-import { GlobalContext } from '../context/GlobalState'
 
-const HomePage = () => {
+const HomePage = ({ region, allCountries, setAllCountries }) => {
 
-    // I will invoke the Global Context
-    const { region, allCountries, setAllCountries } = useContext(GlobalContext)
     // useState for inputs 
     const [searchedCountry, setSearchedCountry] = useState([])
     // useState for current Page

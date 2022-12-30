@@ -19,7 +19,6 @@ const Inputs = (props) => {
     // Input field where user can write his country 
 
     const allCountriesToFilter = [...allCountries]
-
     // Toggling handler function
     const togglingHandler = () => {
         // Use the not operator as a toggle
